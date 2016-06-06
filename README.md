@@ -6,7 +6,7 @@ TODO - Write Description
 
 ## Version Guide
 
-1. Ruby >= v2.2.1
+1. Ruby == v2.3.0
 
 2. Rails >= 4.2.1
 
@@ -38,7 +38,7 @@ Copyright 2016 Tanmay Patil
 
 mailto: tanmay.ashok.patil@gmail.com
 
-@version March 21, 2016
+@version June 05, 2016
 
 
 </content>
