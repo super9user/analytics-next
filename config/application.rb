@@ -30,3 +30,5 @@ module AnalyticsNext
     # config.i18n.default_locale = :de
   end
 end
+
+require "analytics_next.rb"
