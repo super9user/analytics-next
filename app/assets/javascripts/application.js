@@ -14,17 +14,14 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
-//= require select2.full
-//= require moment
-//= require daterangepicker
 //= require underscore
 
-//= require highstock
-//= require highcharts-more
-//= require highcharts-solid-gauge
-//= require highcharts-no-data-to-display
-//= require highcharts-3d
-//= require highcharts-drilldown
+//require highstock
+//require highcharts-more
+//require highcharts-solid-gauge
+//require highcharts-no-data-to-display
+//require highcharts-3d
+//require highcharts-drilldown
 
 params = {};
 $(document).ready(function(){

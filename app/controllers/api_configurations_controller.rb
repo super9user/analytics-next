@@ -11,7 +11,7 @@ class ApiConfigurationsController < ApplicationController
 	def update
 		respond_to do |format|
 			if @api_configuration.update(api_configuration_params)
-				format.html { redirect_to api_configurations_path, notice: 'Api configuration was successfully updated.' }
+				format.html { redirect_to root_path, notice: 'Api configuration was successfully updated.' }
 				format.json { render :show, status: :ok, location: @api_configuration }
 			else
 				format.html { render :edit }
@@ -27,6 +27,6 @@ class ApiConfigurationsController < ApplicationController
 
 	# Never trust parameters from the scary internet, only allow the white list through.
 	def api_configuration_params
-		params.require(:api_configuration).permit(:client_id, :client_secret)
+		params.require(:api_configuration).permit(:client_id, :client_secret, :hosting_service)
 	end
 end

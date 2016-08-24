@@ -7,7 +7,7 @@ class User
 	field :time_zone, type: String, default: "Pacific Time (US & Canada)"
 	field :role, type: String
 
-	field :is_active, type: Boolean,default: false # Soft delete
+	field :is_active, type: Boolean, default: false # Soft delete
 
 	has_many :phone_numbers, autosave: true
 	has_many :email_addresses, autosave: true
