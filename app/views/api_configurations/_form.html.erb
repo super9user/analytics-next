@@ -17,6 +17,11 @@
 		</table>
 	<% end %>
 
+  <div class="field form-group">
+    <%= f.label :hosting_service %><br>
+    <%= f.select :hosting_service, HOSTING_SERVICES_SUPPORTED.map {|x| [x.camelize, x]}, {}, class: "form-control" %>
+  </div>
+
 	<div class="field form-group">
 		<%= f.label :client_id %><br>
 		<%= f.text_field :client_id, class: "form-control" %>
@@ -25,11 +30,6 @@
 	<div class="field form-group">
 		<%= f.label :client_secret %><br>
 		<%= f.text_field :client_secret, class: "form-control" %>
-	</div>
-
-	<div class="field form-group">
-		<%= f.label :hosting_service %><br>
-		<%= f.text_field :hosting_service, class: "form-control" %>
 	</div>
 
 	<div class="actions">

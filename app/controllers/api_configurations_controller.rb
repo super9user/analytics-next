@@ -1,6 +1,6 @@
 class ApiConfigurationsController < ApplicationController
 	before_action :set_api_configuration, only: [:edit, :update]
-	layout "admin"
+	layout "application"
 
 	# GET /api_configurations/1/edit
 	def edit
