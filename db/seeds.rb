@@ -6,12 +6,23 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-admin_users = User.where(role: "admin")
-if(admin_users.count==0)
-	admin = User.new(first_name: ADMINISTRATOR[:first_name], last_name: ADMINISTRATOR[:last_name], role: "admin")
-	e = EmailAddress.new(email: ADMINISTRATOR[:email])
-	admin.email_addresses << e
-	admin.save
+case Rails.env
+  when "development", "test"
+		client = Client.new(name: ADMINISTRATOR[:client_name])
+		admin = User.new(first_name: ADMINISTRATOR[:first_name], last_name: ADMINISTRATOR[:last_name], role: "admin")
+		admin.email_addresses << EmailAddress.new(email: ADMINISTRATOR[:user_email])
+
+    client.users << admin
+		client.email_addresses << EmailAddress.new(email: ADMINISTRATOR[:client_email])
+		client.api_configurations << ApiConfiguration.new(client_id: DEFAULT_CREDS[:client_id],
+																											client_secret: DEFAULT_CREDS[:client_secret])
+		if client.save
+      puts "Client Saved."
+    else
+      puts "Error"
+      puts client.errors.full_messages
+    end
+
 end
 
-ApiConfiguration.create(client_id: DEFAULT_CREDS[:client_id], client_secret: DEFAULT_CREDS[:client_secret])
+

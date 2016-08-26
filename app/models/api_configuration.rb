@@ -2,16 +2,12 @@ class ApiConfiguration
 	include Mongoid::Document
 	include Mongoid::Timestamps
 
+	belongs_to :client
+
 	field :client_id, type: String
 	field :client_secret, type: String
-	field :hosting_service, type: String, default: "github"
+	field :hosting_service, type: String, default: "github_service"
 
-	validates :client_secret, :client_id, presence: true
-	validate :confirm_singularity
-
-	def confirm_singularity
-		# TODO - Switch functionality such that each api_configuration comes from a organization
-		errors[:base] << "There can be only one api_configuration per organization." if self.new_record? && ApiConfiguration.count > 0
-	end
+	validates :hosting_service, presence: true, uniqueness: { scope: :client }
 
 end
